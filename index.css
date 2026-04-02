@@ -1,0 +1,240 @@
+:root {
+    --color-burgundy: #4A0E1C;
+    --color-magenta: #9E2A5D;
+    --color-sapphire: #0C1445;
+    --color-rose-gold: #B76E79;
+    --color-ruby-red: #9B111E;
+    --color-soft-pink: #FFB6C1;
+    --color-text-main: #FFFFFF;
+    --color-text-dim: rgba(255, 255, 255, 0.85);
+
+    --font-heading: 'Amiri', serif;
+    --font-body: 'Cairo', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-sapphire);
+}
+
+body {
+    background-image: url('file:///C:/Users/USER/.gemini/antigravity/brain/620db34d-ad68-41e2-ba92-f6b4738f8a0b/romantic_couple_bokeh_1775166292752.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Blur and gradient overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(74, 14, 28, 0.7) 0%, rgba(12, 20, 69, 0.8) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    animation: fadeInDown 1s ease-out;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: var(--color-rose-gold);
+    text-transform: uppercase;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 800px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.headline {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    line-height: 1.25;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    margin-bottom: 5px;
+}
+
+.sub-headline {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    font-weight: 300;
+    max-width: 90%;
+}
+
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: linear-gradient(135deg, var(--color-ruby-red), var(--color-soft-pink));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 20px 40px;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(155, 17, 30, 0.6), 0 0 20px rgba(255, 182, 193, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    transition: all 0.6s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(155, 17, 30, 0.8), 0 0 30px rgba(255, 182, 193, 0.6);
+}
+
+.cta-button:hover::before {
+    left: 150%;
+}
+
+.app-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.store-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--color-soft-pink);
+    transform: translateY(-2px);
+}
+
+/* Particle Effects */
+#particles-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--color-rose-gold);
+    opacity: 0;
+    animation: floatUp ease-in infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) scale(0); opacity: 0; }
+    30% { opacity: 0.5; }
+    70% { opacity: 0.5; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (min-width: 768px) {
+    .headline {
+        font-size: 4rem;
+        margin-bottom: 10px;
+    }
+    .sub-headline {
+        font-size: 1.4rem;
+    }
+    .cta-button {
+        font-size: 1.25rem;
+        padding: 22px 50px;
+    }
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .logo-text {
+        font-size: 18px;
+    }
+}
